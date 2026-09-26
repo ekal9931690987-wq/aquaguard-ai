@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AquaGuard AI | Smart Water Protection
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <span class="logo-icon">
+            💧
+        </span>
+
+        <span>
+            AquaGuard <b>AI</b>
+        </span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#report">
+            Report
+        </a>
+
+        <a href="#map">
+            Map
+        </a>
+
+        <a href="#dashboard">
+            Dashboard
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section
+    id="home"
+    class="hero"
+>
+
+    <div class="hero-content">
+
+        <div class="badge">
+            AI-POWERED WATER INFRASTRUCTURE PROTECTION
+        </div>
+
+
+        <h1>
+
+            Protecting Clean Water
+
+            <span>
+                with AI & Civic Action
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            AquaGuard AI helps citizens report
+            water infrastructure problems such as
+            pipeline bursts, contamination,
+            sewage overflow and open manholes.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#report"
+                class="btn primary"
+            >
+                Report Water Issue
+            </a>
+
+
+            <a
+                href="#map"
+                class="btn secondary"
+            >
+                View Hotspot Map
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-card">
+
+        <div class="water-icon">
+            💧
+        </div>
+
+
+        <h3>
+            Smart Water Protection
+        </h3>
+
+
+        <p>
+            Report → Analyze → Assign → Resolve
+        </p>
+
+
+        <div class="status">
+
+            <span></span>
+
+            System Online
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     FEATURES
+========================================== -->
+
+<section class="features">
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            HOW IT WORKS
+        </p>
+
+
+        <h2>
+
+            From Citizen Report to
+
+            <span>
+                Resolution
+            </span>
+
+        </h2>
+
+    </div>
+
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                01
+            </div>
+
+            <h3>
+                Report
+            </h3>
+
+            <p>
+
+                Citizens submit water-related
+                problems with description,
+                location and photo.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                02
+            </div>
+
+            <h3>
+                AI Analysis
+            </h3>
+
+            <p>
+
+                AI analyzes the report and identifies
+                issue type and severity.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                03
+            </div>
+
+            <h3>
+                Authority Action
+            </h3>
+
+            <p>
+
+                Authorities receive incidents and
+                assign them to responsible teams.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                04
+            </div>
+
+            <h3>
+                Resolution
+            </h3>
+
+            <p>
+
+                Citizens can track progress until
+                the issue is completely resolved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     REPORT SECTION
+========================================== -->
+
+<section
+    id="report"
+    class="report-section"
+>
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            CITIZEN PORTAL
+        </p>
+
+
+        <h2>
+
+            Report a Water
+
+            <span>
+                Issue
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Help protect your community by reporting
+            water infrastructure problems.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="report-container">
+
+        <form id="reportForm">
+
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Your Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email"
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Issue Type
+                    </label>
+
+
+                    <select
+                        id="issueType"
+                        name="issueType"
+                        required
+                    >
+
+                        <option value="">
+                            Select issue
+                        </option>
+
+                        <option value="Pipeline Leak">
+                            Pipeline Leak
+                        </option>
+
+                        <option value="Pipeline Burst">
+                            Pipeline Burst
+                        </option>
+
+                        <option value="Water Contamination">
+                            Water Contamination
+                        </option>
+
+                        <option value="Sewage Overflow">
+                            Sewage Overflow
+                        </option>
+
+                        <option value="Open Manhole">
+                            Open Manhole
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Location
+                </label>
+
+
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter problem location"
+                    required
+                >
+
+
+                <button
+                    type="button"
+                    class="location-btn"
+                    onclick="useMyLocation()"
+                >
+                    📍 Use My Location
+                </button>
+
+
+                <input
+                    type="hidden"
+                    id="latitude"
+                    name="latitude"
+                >
+
+
+                <input
+                    type="hidden"
+                    id="longitude"
+                    name="longitude"
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Description
+                </label>
+
+
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="5"
+                    placeholder="Describe the water issue..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Upload Photo
+                </label>
+
+
+                <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/jpeg,image/png,image/webp"
+                >
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="btn primary full-btn"
+            >
+
+                Submit Water Issue
+
+            </button>
+
+        </form>
+
+
+        <div
+            id="reportMessage"
+            class="report-message"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     MAP
+========================================== -->
+
+<section
+    id="map"
+    class="map-section"
+>
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            LIVE MONITORING
+        </p>
+
+
+        <h2>
+
+            Water Issue
+
+            <span>
+                Hotspots
+            </span>
+
+        </h2>
+
+
+        <p>
+            View reported water infrastructure problems.
+        </p>
+
+    </div>
+
+
+    <div id="waterMap"></div>
+
+
+    <div
+        id="mapReports"
+        class="map-reports"
+    ></div>
+
+</section>
+
+
+
+<!-- ==========================================
+     DASHBOARD
+========================================== -->
+
+<section
+    id="dashboard"
+    class="dashboard-section"
+>
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            AUTHORITY PORTAL
+        </p>
+
+
+        <h2>
+
+            AquaGuard
+
+            <span>
+                Dashboard
+            </span>
+
+        </h2>
+
+    </div>
+
+
+
+    <!-- ======================================
+         STAT CARDS
+    ======================================= -->
+
+    <div class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📊
+            </div>
+
+            <h3 id="totalReports">
+                0
+            </h3>
+
+            <p>
+                Total Reports
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⚠️
+            </div>
+
+            <h3 id="criticalReports">
+                0
+            </h3>
+
+            <p>
+                Critical Issues
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔧
+            </div>
+
+            <h3 id="progressReports">
+                0
+            </h3>
+
+            <p>
+                In Progress
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <h3 id="resolvedReports">
+                0
+            </h3>
+
+            <p>
+                Resolved
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ======================================
+         DASHBOARD ACTIONS
+    ======================================= -->
+
+    <div class="dashboard-actions">
+
+
+        <button
+            class="btn secondary"
+            onclick="loadDashboard()"
+        >
+            Refresh Dashboard
+        </button>
+
+
+        <button
+            class="btn primary"
+            onclick="createDemoReport()"
+        >
+            Create Demo Incident
+        </button>
+
+    </div>
+
+
+
+    <!-- ======================================
+         SEARCH & FILTERS
+    ======================================= -->
+
+    <div class="dashboard-filters">
+
+        <div class="filter-title">
+
+            <h3>
+                🔎 Find Reports
+            </h3>
+
+            <p>
+                Search and filter water incidents
+            </p>
+
+        </div>
+
+
+        <div class="filter-row">
+
+
+            <div class="filter-group">
+
+                <label>
+                    Search
+                </label>
+
+                <input
+                    type="text"
+                    id="reportSearch"
+                    placeholder="Search report ID, location or description..."
+                >
+
+            </div>
+
+
+
+            <div class="filter-group">
+
+                <label>
+                    Issue Type
+                </label>
+
+                <select id="issueFilter">
+
+                    <option value="all">
+                        All Issues
+                    </option>
+
+                    <option value="Pipeline Leak">
+                        Pipeline Leak
+                    </option>
+
+                    <option value="Pipeline Burst">
+                        Pipeline Burst
+                    </option>
+
+                    <option value="Water Contamination">
+                        Water Contamination
+                    </option>
+
+                    <option value="Sewage Overflow">
+                        Sewage Overflow
+                    </option>
+
+                    <option value="Open Manhole">
+                        Open Manhole
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="filter-group">
+
+                <label>
+                    Severity
+                </label>
+
+                <select id="severityFilter">
+
+                    <option value="all">
+                        All Severities
+                    </option>
+
+                    <option value="Critical">
+                        Critical
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="filter-group">
+
+                <label>
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="Reported">
+                        Reported
+                    </option>
+
+                    <option value="Assigned">
+                        Assigned
+                    </option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Resolved">
+                        Resolved
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            class="btn secondary"
+            id="clearFilters"
+        >
+            Clear Filters
+        </button>
+
+    </div>
+
+
+
+    <!-- ======================================
+         ANALYTICS
+    ======================================= -->
+
+    <div class="analytics-section">
+
+
+        <div class="analytics-card">
+
+            <h3>
+                📊 Severity Breakdown
+            </h3>
+
+
+            <div id="severityAnalytics">
+                Loading...
+            </div>
+
+        </div>
+
+
+
+        <div class="analytics-card">
+
+            <h3>
+                🔎 Issue Type Statistics
+            </h3>
+
+
+            <div id="issueAnalytics">
+                Loading...
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ======================================
+         DASHBOARD REPORTS
+    ======================================= -->
+
+    <div
+        id="dashboardReports"
+        class="dashboard-reports"
+    ></div>
+
+</section>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        💧 AquaGuard AI
+    </div>
+
+
+    <p>
+        AI-powered civic technology
+        for safer water infrastructure.
+    </p>
+
+
+    <p class="copyright">
+        © 2026 AquaGuard AI
+    </p>
+
+</footer>
+
+
+
+<script
+    src="script.js"
+></script>
+
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
+
+
+</body>
+
+</html>
