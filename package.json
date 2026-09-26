@@ -1,0 +1,26 @@
+{
+  "name": "aquaguard-ai",
+  "version": "1.0.0",
+  "description": "AquaGuard AI - AI-powered water and infrastructure issue management platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "water",
+    "infrastructure",
+    "ai",
+    "management",
+    "civic-tech"
+  ],
+  "author": "AquaGuard Team",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}

@@ -1,0 +1,562 @@
+[
+  {
+    "ticketId": "AQ-2026-7228",
+    "title": "Flooded Intersection from Ruptured Main",
+    "description": "Severe water loss spraying into road. Traffic blocked.",
+    "citizenName": "Sarah Jenkins",
+    "citizenContact": "",
+    "imageUrl": "/uploads/issue-1790416063196-779485601.jpg",
+    "category": "Pipe Burst / High Pressure Leakage",
+    "categoryId": "pipe_burst",
+    "severity": "High",
+    "status": "Resolved",
+    "assignedDepartment": "Water Supply & Main Pipelines",
+    "assignedOfficer": "Officer Liam Thorne (Squad 4)",
+    "location": {
+      "address": "450 Lexington Avenue",
+      "landmark": "",
+      "ward": "Ward 4 - Metro Central",
+      "coordinates": {
+        "lat": 40.7512,
+        "lng": -73.9755
+      }
+    },
+    "aiAnalysis": {
+      "category": "Pipe Burst / High Pressure Leakage",
+      "categoryId": "pipe_burst",
+      "department": "Water Supply & Main Pipelines",
+      "severity": "High",
+      "severityScore": 75,
+      "severityColor": "#FF7D00",
+      "confidence": "98%",
+      "targetSLA": "12 hours",
+      "estimatedWaterLoss": "~2,200 Liters / Hour",
+      "recommendedEquipment": [
+        "High-Pressure Pipe Clamp (4\"-8\")",
+        "Portable Dewatering Sump Pump",
+        "Hydraulic Pipe Cutter",
+        "Reflective Barricades"
+      ],
+      "visualTags": [
+        "Water Surface Jet",
+        "Pavement Saturation",
+        "High Pressure Flow"
+      ],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-26T09:47:43.202Z"
+    },
+    "upvotes": 1,
+    "duplicateOf": null,
+    "resolutionNotes": "Pipe joint replaced with 8-inch stainless clamp. Pressure restored to 65 PSI. Road reopened.",
+    "createdAt": "2026-09-26T09:47:43.203Z",
+    "updatedAt": "2026-09-26T09:47:43.249Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-26T09:47:43.203Z",
+        "updatedBy": "Sarah Jenkins",
+        "note": "Issue submitted with photo, geolocation, and AI automated assessment."
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-09-26T09:47:43.211Z",
+        "updatedBy": "Authority Dashboard",
+        "note": "Dispatched emergency squad with shutoff keys"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-26T09:47:43.232Z",
+        "updatedBy": "Authority Dashboard",
+        "note": "Field crew arrived. Main valve shut off. Excavation started."
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-09-26T09:47:43.249Z",
+        "updatedBy": "Authority Dashboard",
+        "note": "Repairs completed and flow tested"
+      }
+    ],
+    "_id": "local_1790416063203",
+    "resolvedAt": "2026-09-26T09:47:43.249Z"
+  },
+  {
+    "ticketId": "AQ-2026-3305",
+    "title": "Dangerous Open Sewer Sump in School Zone",
+    "description": "Open manhole with black foul liquid exposed near school exit gate. Heavy fall hazard.",
+    "citizenName": "Jane Doe",
+    "citizenContact": "+1 555-999-0000",
+    "imageUrl": "https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=600&q=80",
+    "category": "Open Manhole / Uncovered Sump Danger",
+    "categoryId": "open_manhole",
+    "severity": "Critical",
+    "status": "Resolved",
+    "assignedDepartment": "Emergency Road & Safety Infrastructure",
+    "assignedOfficer": "Officer Kevin Vance",
+    "location": {
+      "address": "210 School Road",
+      "landmark": "",
+      "ward": "Ward 3 - North Residential",
+      "coordinates": {
+        "lat": 40.787,
+        "lng": -73.965
+      }
+    },
+    "aiAnalysis": {
+      "category": "Open Manhole / Uncovered Sump Danger",
+      "categoryId": "open_manhole",
+      "department": "Emergency Road & Safety Infrastructure",
+      "severity": "Critical",
+      "severityScore": 98,
+      "severityColor": "#EF476F",
+      "confidence": "98%",
+      "targetSLA": "2 hours",
+      "estimatedWaterLoss": "Negligible / Non-leak issue",
+      "recommendedEquipment": [
+        "Cast Iron Heavy-Duty Cover (D400)",
+        "Solar Warning Flasher Pin",
+        "Manhole Grating Hook"
+      ],
+      "visualTags": [],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-26T09:36:16.188Z"
+    },
+    "upvotes": 2,
+    "duplicateOf": null,
+    "resolutionNotes": "Heavy duty cast iron cover bolted and locked. Area cleared.",
+    "createdAt": "2026-09-26T09:36:16.189Z",
+    "updatedAt": "2026-09-26T09:37:07.855Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-26T09:36:16.189Z",
+        "updatedBy": "Jane Doe",
+        "note": "Issue submitted with photo, geolocation, and AI automated assessment."
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-09-26T09:37:07.811Z",
+        "updatedBy": "Authority Dashboard",
+        "note": "Priority emergency dispatch: Officer Vance en route with cover slab."
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-26T09:37:07.845Z",
+        "updatedBy": "Authority Dashboard",
+        "note": "Perimeter barricaded. Sump dewatering started."
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-09-26T09:37:07.855Z",
+        "updatedBy": "Authority Dashboard",
+        "note": "Repairs completed and safety verified."
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-09-26T09:40:56.324Z",
+        "updatedBy": "Citizen Confirmation",
+        "note": "Additional citizen confirmed presence of this issue via duplicate detection (+1 impact score)"
+      }
+    ],
+    "_id": "local_1790415376189",
+    "resolvedAt": "2026-09-26T09:37:07.855Z"
+  },
+  {
+    "ticketId": "AQ-2026-1081",
+    "title": "High Pressure Water Main Burst on 5th Ave",
+    "description": "Underground 8-inch cast iron pipe ruptured. Water gushing through pavement asphalt and flooding two traffic lanes. Roadway erosion hazard.",
+    "citizenName": "Marcus Vance",
+    "citizenContact": "+1 (555) 234-8901",
+    "imageUrl": "https://images.unsplash.com/photo-1541888946425-d0fbb18f15f6?auto=format&fit=crop&w=600&q=80",
+    "category": "Pipe Burst / High Pressure Leakage",
+    "categoryId": "pipe_burst",
+    "severity": "Critical",
+    "status": "In Progress",
+    "assignedDepartment": "Water Supply & Main Pipelines",
+    "assignedOfficer": "Officer Sarah Chen (Squad Leader)",
+    "location": {
+      "address": "742 5th Avenue, Midtown Crossing",
+      "landmark": "Near Central Plaza Fountain",
+      "ward": "Ward 1 - Downtown Civic",
+      "coordinates": {
+        "lat": 40.7628,
+        "lng": -73.9744
+      }
+    },
+    "aiAnalysis": {
+      "category": "Pipe Burst / High Pressure Leakage",
+      "categoryId": "pipe_burst",
+      "severity": "Critical",
+      "severityScore": 96,
+      "severityColor": "#EF476F",
+      "confidence": "97%",
+      "targetSLA": "4 hours",
+      "estimatedWaterLoss": "~4,800 Liters / Hour",
+      "recommendedEquipment": [
+        "High-Pressure Pipe Clamp (8\")",
+        "Portable Dewatering Sump Pump",
+        "Hydraulic Pipe Cutter",
+        "Reflective Barricades"
+      ],
+      "visualTags": [
+        "High Pressure Jet",
+        "Pavement Undermining",
+        "Traffic Interruption"
+      ],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-26T06:00:51.701Z"
+    },
+    "upvotes": 8,
+    "duplicateOf": null,
+    "resolutionNotes": "Field crew deployed. Emergency valve shutoff complete. Pipe sleeve replacement underway.",
+    "createdAt": "2026-09-26T06:00:51.702Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-26T06:00:51.702Z",
+        "updatedBy": "Citizen Portal",
+        "note": "Issue submitted with photo and live GPS"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-09-26T06:30:51.702Z",
+        "updatedBy": "AI Dispatch Engine",
+        "note": "Auto-routed to Squad Leader Sarah Chen based on proximity and SLA target"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-26T07:30:51.702Z",
+        "updatedBy": "Officer Sarah Chen",
+        "note": "Barricades placed. Excavation to expose mainline joint."
+      }
+    ]
+  },
+  {
+    "ticketId": "AQ-2026-1082",
+    "title": "Raw Sewage Overflow Near Elementary School",
+    "description": "Manhole chamber overflowing with dark wastewater and unbearable stench. Puddle is spreading towards the school pedestrian crosswalk.",
+    "citizenName": "Elena Rostova",
+    "citizenContact": "+1 (555) 789-4321",
+    "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+    "category": "Sewage Overflow / Wastewater Hazard",
+    "categoryId": "sewage_overflow",
+    "severity": "Critical",
+    "status": "Assigned",
+    "assignedDepartment": "Sanitation & Wastewater Management",
+    "assignedOfficer": "Inspector Kevin Ramirez",
+    "location": {
+      "address": "118 Oakridge Boulevard, North Ward",
+      "landmark": "Directly opposite Lincoln Elementary Gate 2",
+      "ward": "Ward 3 - North Residential",
+      "coordinates": {
+        "lat": 40.785,
+        "lng": -73.9682
+      }
+    },
+    "aiAnalysis": {
+      "category": "Sewage Overflow / Wastewater Hazard",
+      "categoryId": "sewage_overflow",
+      "severity": "Critical",
+      "severityScore": 94,
+      "severityColor": "#EF476F",
+      "confidence": "95%",
+      "targetSLA": "2 hours",
+      "estimatedWaterLoss": "Hazardous Effluent",
+      "recommendedEquipment": [
+        "Suction Vacuum Tanker",
+        "Jetting Cleaning Machine",
+        "Disinfectant Spraying Unit"
+      ],
+      "visualTags": [
+        "Bio-Hazard Spill",
+        "Manhole Surcharge",
+        "Pedestrian Risk Area"
+      ],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-26T07:12:51.702Z"
+    },
+    "upvotes": 14,
+    "duplicateOf": null,
+    "resolutionNotes": "",
+    "createdAt": "2026-09-26T07:12:51.702Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-26T07:12:51.702Z",
+        "updatedBy": "Citizen Portal",
+        "note": "Multiple citizen reports detected and consolidated"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-09-26T07:48:51.702Z",
+        "updatedBy": "Superintendent Davis",
+        "note": "Priority escalated due to school zone proximity. Vacuum unit 4 dispatched."
+      }
+    ]
+  },
+  {
+    "ticketId": "AQ-2026-1083",
+    "title": "Discolored Muddy Drinking Water from Municipal Tap",
+    "description": "Water coming from municipal line is dark brownish with a strong rusty/earthy odor. Entire apartment building is unable to cook or drink.",
+    "citizenName": "Devon Patel",
+    "citizenContact": "+1 (555) 456-1122",
+    "imageUrl": "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=600&q=80",
+    "category": "Drinking Water Contamination / Quality Issue",
+    "categoryId": "water_contamination",
+    "severity": "High",
+    "status": "Reported",
+    "assignedDepartment": "Public Health & Water Quality Division",
+    "assignedOfficer": "Unassigned",
+    "location": {
+      "address": "320 Riverside Drive, Apt 4B",
+      "landmark": "Corner of 84th and Riverside",
+      "ward": "Ward 2 - West Riverside",
+      "coordinates": {
+        "lat": 40.7891,
+        "lng": -73.9792
+      }
+    },
+    "aiAnalysis": {
+      "category": "Drinking Water Contamination / Quality Issue",
+      "categoryId": "water_contamination",
+      "severity": "High",
+      "severityScore": 82,
+      "severityColor": "#FF7D00",
+      "confidence": "92%",
+      "targetSLA": "4 hours",
+      "estimatedWaterLoss": "Supply Quality Compromised",
+      "recommendedEquipment": [
+        "Digital Spectrophotometer Kit",
+        "Turbidity Meter",
+        "Chlorine Dosing Unit",
+        "Sterile Sampling Bottles"
+      ],
+      "visualTags": [
+        "High Turbidity",
+        "Discolored Fluid (Brownish)",
+        "Sedimentation"
+      ],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-26T08:06:51.702Z"
+    },
+    "upvotes": 5,
+    "duplicateOf": null,
+    "resolutionNotes": "",
+    "createdAt": "2026-09-26T08:06:51.702Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-26T08:06:51.702Z",
+        "updatedBy": "Citizen Portal",
+        "note": "AI classified as High severity contamination; water sampling requested"
+      }
+    ]
+  },
+  {
+    "ticketId": "AQ-2026-1084",
+    "title": "Deep Uncovered Storm Manhole in Active Bikeway",
+    "description": "Heavy round manhole lid is completely missing. Over 6 feet deep hole exposed in the middle of a commuter cycle lane with zero warning markers.",
+    "citizenName": "Sophia Miller",
+    "citizenContact": "+1 (555) 321-9988",
+    "imageUrl": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
+    "category": "Open Manhole / Uncovered Sump Danger",
+    "categoryId": "open_manhole",
+    "severity": "Critical",
+    "status": "In Progress",
+    "assignedDepartment": "Emergency Road & Safety Infrastructure",
+    "assignedOfficer": "Officer Maya Brooks",
+    "location": {
+      "address": "58 Broadway at Canal Street",
+      "landmark": "Near Subway Entrance B",
+      "ward": "Ward 1 - Downtown Civic",
+      "coordinates": {
+        "lat": 40.7185,
+        "lng": -74.0012
+      }
+    },
+    "aiAnalysis": {
+      "category": "Open Manhole / Uncovered Sump Danger",
+      "categoryId": "open_manhole",
+      "severity": "Critical",
+      "severityScore": 98,
+      "severityColor": "#EF476F",
+      "confidence": "98%",
+      "targetSLA": "2 hours",
+      "estimatedWaterLoss": "Direct Hazard",
+      "recommendedEquipment": [
+        "Cast Iron Heavy-Duty Cover (D400)",
+        "Solar Warning Flasher Pin",
+        "Manhole Grating Hook"
+      ],
+      "visualTags": [
+        "Void Cavity",
+        "Missing Cover",
+        "Severe Roadway Danger"
+      ],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-26T07:00:51.702Z"
+    },
+    "upvotes": 19,
+    "duplicateOf": null,
+    "resolutionNotes": "Temporary safety barricade installed. Heavy duty steel grate replacement being fitted.",
+    "createdAt": "2026-09-26T07:00:51.702Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-26T07:00:51.702Z",
+        "updatedBy": "Citizen Mobile App",
+        "note": "Report submitted with immediate high hazard flag"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-09-26T07:12:51.702Z",
+        "updatedBy": "Safety Dispatch Bot",
+        "note": "Dispatched emergency crew immediately (SLA: 2 hours)"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-26T08:18:51.702Z",
+        "updatedBy": "Officer Maya Brooks",
+        "note": "Warning cone placed; awaiting crane carrier for replacement lid."
+      }
+    ]
+  },
+  {
+    "ticketId": "AQ-2026-1085",
+    "title": "Major Stormwater Gutter Clog & Street Flooding",
+    "description": "Catch basin completely clogged by fallen branches and plastic waste. Water level up to sidewalk curb after light rain shower.",
+    "citizenName": "Aiden Cooper",
+    "citizenContact": "+1 (555) 654-7733",
+    "imageUrl": "https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=600&q=80",
+    "category": "Stormwater Drainage Clog / Urban Flooding",
+    "categoryId": "drainage_clog",
+    "severity": "Medium",
+    "status": "Resolved",
+    "assignedDepartment": "Stormwater & Drainage Engineering",
+    "assignedOfficer": "Officer Ray Morales",
+    "location": {
+      "address": "921 Madison Avenue",
+      "landmark": "In front of Community Library",
+      "ward": "Ward 4 - East District",
+      "coordinates": {
+        "lat": 40.7725,
+        "lng": -73.9634
+      }
+    },
+    "aiAnalysis": {
+      "category": "Stormwater Drainage Clog / Urban Flooding",
+      "categoryId": "drainage_clog",
+      "severity": "Medium",
+      "severityScore": 58,
+      "severityColor": "#FFD166",
+      "confidence": "90%",
+      "targetSLA": "12 hours",
+      "estimatedWaterLoss": "Street Drainage Stagnation",
+      "recommendedEquipment": [
+        "Mechanical Desilting Machine",
+        "High-Flow Submersible Pump",
+        "Clog Breaking Rods"
+      ],
+      "visualTags": [
+        "Debris Clumping",
+        "Storm Grate Choked",
+        "Curb Flooding"
+      ],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-25T15:00:51.702Z"
+    },
+    "upvotes": 4,
+    "duplicateOf": null,
+    "resolutionNotes": "Clog cleared with jet rodder. Grate cleared of 140kg silt and debris. Water drained smoothly.",
+    "resolvedAt": "2026-09-26T05:00:51.702Z",
+    "createdAt": "2026-09-25T15:00:51.702Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-25T15:00:51.702Z",
+        "updatedBy": "Citizen Portal",
+        "note": "Initial citizen submission"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-09-25T19:00:51.702Z",
+        "updatedBy": "Dispatch Coordinator",
+        "note": "Assigned to drainage crew 2"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-09-26T01:00:51.702Z",
+        "updatedBy": "Officer Ray Morales",
+        "note": "Desilting operations initiated"
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-09-26T05:00:51.702Z",
+        "updatedBy": "Officer Ray Morales",
+        "note": "Drain cleared and flow test verified 100% capacity."
+      }
+    ]
+  },
+  {
+    "ticketId": "AQ-2026-1086",
+    "title": "Commercial Water Meter Cracked and Leaking",
+    "description": "Brass connector of main commercial meter cracked during freeze. Constant spray leaking ~150 liters per hour into basement sump.",
+    "citizenName": "Tanya Green",
+    "citizenContact": "+1 (555) 908-1234",
+    "imageUrl": "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=600&q=80",
+    "category": "Damaged Water Meter / Valve Defect",
+    "categoryId": "damaged_meter",
+    "severity": "Medium",
+    "status": "Assigned",
+    "assignedDepartment": "Metering & Consumer Connections",
+    "assignedOfficer": "Technician Liam Scott",
+    "location": {
+      "address": "415 West 23rd Street",
+      "landmark": "Service Entrance Basement",
+      "ward": "Ward 2 - West Riverside",
+      "coordinates": {
+        "lat": 40.7465,
+        "lng": -74.0019
+      }
+    },
+    "aiAnalysis": {
+      "category": "Damaged Water Meter / Valve Defect",
+      "categoryId": "damaged_meter",
+      "severity": "Medium",
+      "severityScore": 52,
+      "severityColor": "#FFD166",
+      "confidence": "88%",
+      "targetSLA": "48 hours",
+      "estimatedWaterLoss": "~150 Liters / Hour",
+      "recommendedEquipment": [
+        "Digital AMR Water Meter (25mm)",
+        "Brass Stopcock Replacement",
+        "Security Tamper Seal"
+      ],
+      "visualTags": [
+        "Cracked Casing",
+        "Continuous Seepage",
+        "Meter Vault"
+      ],
+      "aiModelUsed": "AquaGuard-Vision-v4.2-CivicEngine",
+      "analyzedAt": "2026-09-25T21:00:51.702Z"
+    },
+    "upvotes": 2,
+    "duplicateOf": null,
+    "resolutionNotes": "",
+    "createdAt": "2026-09-25T21:00:51.702Z",
+    "timeline": [
+      {
+        "status": "Reported",
+        "timestamp": "2026-09-25T21:00:51.702Z",
+        "updatedBy": "Citizen Portal",
+        "note": "Reported by building superintendent"
+      },
+      {
+        "status": "Assigned",
+        "timestamp": "2026-09-26T00:00:51.702Z",
+        "updatedBy": "Metering Dept",
+        "note": "Assigned for meter replacement"
+      }
+    ]
+  }
+]
