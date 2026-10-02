@@ -1,0 +1,30 @@
+[
+  {
+    "id": "AQ-1790965188530",
+    "name": "EKALAVYA",
+    "phone": "9931690987",
+    "email": "ekal9931690987@gmail.com",
+    "issueType": "Pipeline Leak",
+    "description": "bbbv",
+    "location": "KCC Institute, APJ Abdul Kalam Road, Knowledge Park III, Shafipur, Greater Noida, Gautam Buddha Nagar, Uttar Pradesh, 201310, India",
+    "latitude": "28.4712769",
+    "longitude": "77.4935889",
+    "aiCategory": "Pipeline Leak",
+    "aiConfidence": 0.92,
+    "imageAnalysis": {
+      "detected": false,
+      "category": "No Image",
+      "severity": "Unknown",
+      "confidence": 0,
+      "message": "No image was uploaded for analysis."
+    },
+    "severity": "High",
+    "isDuplicate": false,
+    "duplicateReportId": null,
+    "status": "Reported",
+    "photo": null,
+    "createdAt": "2026-10-02T18:19:48.531Z",
+    "assignedTo": null,
+    "updatedAt": "2026-10-02T18:19:48.531Z"
+  }
+]
