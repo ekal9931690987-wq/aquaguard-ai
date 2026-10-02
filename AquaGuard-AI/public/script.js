@@ -1120,19 +1120,15 @@ async function loadAnalytics() {
         if (totalReports) {
 
             totalReports.innerText =
-                data.totalReports ??
-                data.total ??
-                0;
+    data.analytics?.total ?? data.total ?? 0;
 
         }
 
 
         if (criticalReports) {
 
-            criticalReports.innerText =
-                data.criticalReports ??
-                data.critical ??
-                0;
+           criticalReports.innerText =
+    data.analytics?.critical ?? data.critical ?? 0;
 
         }
 
@@ -1140,19 +1136,15 @@ async function loadAnalytics() {
         if (progressReports) {
 
             progressReports.innerText =
-                data.progressReports ??
-                data.inProgress ??
-                0;
+    data.analytics?.inProgress ?? data.inProgress ?? 0;
 
         }
 
 
         if (resolvedReports) {
 
-            resolvedReports.innerText =
-                data.resolvedReports ??
-                data.resolved ??
-                0;
+           resolvedReports.innerText =
+    data.analytics?.resolved ?? data.resolved ?? 0;
 
         }
 
@@ -1802,6 +1794,70 @@ function resetDashboardFilters() {
     renderDashboardReports(
         dashboardReportsData
     );
+
+}
+
+
+// ======================================================
+// CLEAR ALL REPORTS
+// ======================================================
+
+async function clearAllReports() {
+
+    const adminKey = prompt(
+        "Enter the admin clear key:"
+    );
+
+    if (!adminKey) {
+        return;
+    }
+
+    const confirmed = confirm(
+        "This will permanently delete ALL reports and ALL uploaded report photos. Continue?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            "/api/reports",
+            {
+                method: "DELETE",
+                headers: {
+                    "X-Admin-Key": adminKey
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                data.message || "Unable to clear reports."
+            );
+        }
+
+        alert(data.message);
+
+        await loadDashboard();
+        await loadReports();
+
+    } catch (error) {
+
+        console.error(
+            "CLEAR REPORTS ERROR:",
+            error
+        );
+
+        alert(
+            error.message ||
+            "Unable to clear reports."
+        );
+
+    }
 
 }
 

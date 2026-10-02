@@ -140,6 +140,17 @@ section {
     background: #63e6ff;
 }
 
+.danger {
+    background: #d83a3a;
+    color: #ffffff;
+    border-color: #d83a3a;
+}
+
+.danger:hover {
+    background: #f04b4b;
+    border-color: #f04b4b;
+}
+
 .secondary {
     background: transparent;
     color: #ffffff;

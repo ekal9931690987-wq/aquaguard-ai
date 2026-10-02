@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
@@ -148,6 +150,58 @@ app.get("/api/reports", (req, res) => {
         count: reports.length,
         reports: reports
     });
+
+});
+
+// Clear all reports and uploaded report photos
+app.delete("/api/reports", (req, res) => {
+
+    try {
+
+        const adminKey = process.env.ADMIN_CLEAR_KEY;
+
+        if (!adminKey) {
+            return res.status(503).json({
+                success: false,
+                message: "Clear-all is not configured. Set ADMIN_CLEAR_KEY in the environment."
+            });
+        }
+
+        if (req.get("x-admin-key") !== adminKey) {
+            return res.status(403).json({
+                success: false,
+                message: "Invalid admin key."
+            });
+        }
+
+        const files = fs.readdirSync(uploadFolder);
+
+        for (const file of files) {
+            const filePath = path.join(uploadFolder, file);
+            const stat = fs.statSync(filePath);
+
+            if (stat.isFile()) {
+                fs.unlinkSync(filePath);
+            }
+        }
+
+        saveReports([]);
+
+        res.json({
+            success: true,
+            message: "All reports and uploaded photos were deleted."
+        });
+
+    } catch (error) {
+
+        console.error("CLEAR REPORTS ERROR:", error);
+
+        res.status(500).json({
+            success: false,
+            message: "Unable to clear reports."
+        });
+
+    }
 
 });
 
