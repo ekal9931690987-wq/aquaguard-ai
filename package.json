@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "aquaguard-ai",
   "version": "1.0.0",
   "description": "AI-powered water infrastructure issue reporting and management system",
@@ -16,10 +15,3 @@
     "openai": "^7.23.0"
   }
 }
-=======
-  "dependencies": {
-    "dotenv": "^18.0.4",
-    "openai": "^7.23.0"
-  }
-}
->>>>>>> 08c59605917e3274978769794ba8abfad8532e17
