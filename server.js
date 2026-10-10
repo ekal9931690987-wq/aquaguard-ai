@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
+const session = require("express-session");
+const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 
@@ -18,9 +20,52 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+
+ // Middleware
 app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+if (!process.env.SESSION_SECRET) {
+    throw new Error("SESSION_SECRET is missing in .env");
+}
+
+app.set("trust proxy", 1);
+
+app.use(session({
+    name: "aquaguard.sid",
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 1000 * 60 * 60 * 8
+    }
+}));
+
+// Session configuration
+if (!process.env.SESSION_SECRET) {
+    throw new Error("SESSION_SECRET is missing in .env");
+}
+
+app.set("trust proxy", 1);
+
+app.use(session({
+    name: "aquaguard.sid",
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 1000 * 60 * 60 * 8
+    }
+}));
+
 
 // Folders
 const publicFolder = path.join(__dirname, "public");
@@ -43,9 +88,251 @@ if (!fs.existsSync(uploadFolder)) {
 // Database
 const databaseFile = path.join(dataFolder, "reports.json");
 
+const usersFile = path.join(dataFolder, "users.json");
+
+function readUsers() {
+    try {
+        if (!fs.existsSync(usersFile)) {
+            fs.writeFileSync(usersFile, "[]", "utf8");
+        }
+
+        const data = fs.readFileSync(usersFile, "utf8");
+        const users = JSON.parse(data);
+
+        return Array.isArray(users) ? users : [];
+    } catch (error) {
+        console.error("Could not read users database:", error.message);
+        throw new Error("Users database could not be read.");
+    }
+}
+
+function writeUsers(users) {
+    fs.writeFileSync(
+        usersFile,
+        JSON.stringify(users, null, 2),
+        "utf8"
+    );
+}
+
+
+
 if (!fs.existsSync(databaseFile)) {
     fs.writeFileSync(databaseFile, "[]");
 }
+
+app.post("/api/auth/signup", async (req, res) => {
+    try {
+        const { name, email, password } = req.body;
+
+        if (!name || !email || !password) {
+            return res.status(400).json({
+                success: false,
+                message: "Name, email and password are required."
+            });
+        }
+
+        const cleanName = String(name).trim();
+        const cleanEmail = String(email).trim().toLowerCase();
+        const cleanPassword = String(password);
+
+        if (cleanName.length < 2 || cleanName.length > 80) {
+            return res.status(400).json({
+                success: false,
+                message: "Name must be between 2 and 80 characters."
+            });
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+            return res.status(400).json({
+                success: false,
+                message: "Please enter a valid email address."
+            });
+        }
+
+        if (
+            Buffer.byteLength(cleanPassword, "utf8") < 8 ||
+            Buffer.byteLength(cleanPassword, "utf8") > 72
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Password must be 8 to 72 bytes long."
+            });
+        }
+
+        const users = readUsers();
+
+        if (users.some(user => user.email === cleanEmail)) {
+            return res.status(409).json({
+                success: false,
+                message: "An account with this email already exists."
+            });
+        }
+
+        const passwordHash = await bcrypt.hash(cleanPassword, 12);
+
+        const user = {
+            id: require("crypto").randomUUID(),
+            name: cleanName,
+            email: cleanEmail,
+            passwordHash,
+            createdAt: new Date().toISOString()
+        };
+
+        users.push(user);
+        writeUsers(users);
+
+        req.session.user = {
+            id: user.id,
+            name: user.name,
+            email: user.email
+        };
+
+        req.session.save((error) => {
+            if (error) {
+                console.error("Session save failed:", error.message);
+                return res.status(500).json({
+                    success: false,
+                    message: "Account created, but session could not be started. Please log in."
+                });
+            }
+
+            return res.status(201).json({
+                success: true,
+                message: "Account created successfully.",
+                user: req.session.user
+            });
+        });
+    } catch (error) {
+        console.error("Signup error:", error.message);
+        return res.status(500).json({
+            success: false,
+            message: "Could not create account. Please try again."
+        });
+    }
+});
+
+app.post("/api/auth/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        if (
+            typeof email !== "string" ||
+            typeof password !== "string" ||
+            !email.trim() ||
+            !password
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Email and password are required."
+            });
+        }
+
+        const cleanEmail = email.trim().toLowerCase();
+        const users = readUsers();
+
+        const user = users.find(
+            item => item.email === cleanEmail
+        );
+
+        if (!user || !await bcrypt.compare(password, user.passwordHash)) {
+            return res.status(401).json({
+                success: false,
+                message: "Invalid email or password."
+            });
+        }
+
+        req.session.regenerate((error) => {
+            if (error) {
+                console.error("Session regeneration failed:", error.message);
+                return res.status(500).json({
+                    success: false,
+                    message: "Could not start your session."
+                });
+            }
+
+            req.session.user = {
+                id: user.id,
+                name: user.name,
+                email: user.email
+            };
+
+            req.session.save((saveError) => {
+                if (saveError) {
+                    console.error("Session save failed:", saveError.message);
+                    return res.status(500).json({
+                        success: false,
+                        message: "Could not save your session."
+                    });
+                }
+
+                return res.json({
+                    success: true,
+                    message: "Login successful.",
+                    user: req.session.user
+                });
+            });
+        });
+    } catch (error) {
+        console.error("Login error:", error.message);
+        return res.status(500).json({
+            success: false,
+            message: "Login failed. Please try again."
+        });
+    }
+});
+
+app.get("/api/auth/me", (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).json({
+            success: false,
+            message: "Please log in."
+        });
+    }
+
+    return res.json({
+        success: true,
+        user: req.session.user
+    });
+});
+
+function requireAuth(req, res, next) {
+    if (!req.session || !req.session.user) {
+        return res.status(401).json({
+            success: false,
+            message: "Please log in to access this resource."
+        });
+    }
+
+    next();
+}
+
+
+app.post("/api/auth/logout", (req, res) => {
+    req.session.destroy((error) => {
+        if (error) {
+            console.error("Logout error:", error.message);
+            return res.status(500).json({
+                success: false,
+                message: "Could not log out."
+            });
+        }
+
+        res.clearCookie("aquaguard.sid", {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            path: "/"
+        });
+
+        return res.json({
+            success: true,
+            message: "Logged out successfully."
+        });
+    });
+});
+
+
+
 
 // Serve frontend
 app.use(express.static(publicFolder));
@@ -140,9 +427,8 @@ app.get("/api/health", (req, res) => {
 
 });
 
-// Get all reports
-app.get("/api/reports", (req, res) => {
 
+app.get("/api/reports", requireAuth, (req, res) => {
     const reports = getReports();
 
     res.json({
@@ -150,7 +436,6 @@ app.get("/api/reports", (req, res) => {
         count: reports.length,
         reports: reports
     });
-
 });
 
 // Clear all reports and uploaded report photos
@@ -557,6 +842,7 @@ app.put(
 // Analytics
 app.get(
     "/api/analytics",
+    requireAuth,
     (req, res) => {
 
         const reports =

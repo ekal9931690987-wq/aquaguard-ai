@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.report) {
 
                 const report = data.report;
+                prepareMCDComplaint(report, formData);
 
                 html += `
                     <div class="ai-result-box">
